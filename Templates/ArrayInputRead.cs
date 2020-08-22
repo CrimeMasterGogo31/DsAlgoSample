@@ -4,15 +4,18 @@ class TestArrayInput
 {
 
     //public static void Main()
-//    {
-//        int n = Convert.ToInt32(Console.ReadLine().Trim());
-//    var arr = Array.ConvertAll(Console.ReadLine().Trim().Split(' '),
-//     tmp => Convert.ToInt32(tmp));
+    //{
+    //    Array.ConvertAll(Console.ReadLine().Trim().Split(' '), tmp=> Convert.ToInt32(tmp));
+    //    int n = Convert.ToInt32(Console.ReadLine().Trim());
+    //    var arr = Array.ConvertAll(Console.ReadLine().Trim().Split(' '),
+    //     tmp => Convert.ToInt32(tmp));
+    //    string ss = "";
+    //    ss.Substring(2, 1);
 
-//    int t = Convert.ToInt32(Console.ReadLine().Trim());
-//        while (t-- != 0)
-//        {
-//            var str = Console.ReadLine().Trim();
-//}
-//    }
+    //    int t = Convert.ToInt32(Console.ReadLine().Trim());
+    //    while (t-- != 0)
+    //    {
+    //        var str = Console.ReadLine().Trim();
+    //    }
+    //}
 }

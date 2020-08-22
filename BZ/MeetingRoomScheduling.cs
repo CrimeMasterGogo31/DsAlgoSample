@@ -23,6 +23,54 @@ namespace DemoConsole.BZ
     }
     public class MeetingRoomScheduling
     {
+        public void Schedule()
+        {
+            var t = Convert.ToInt32(Console.ReadLine());
+            while (t-- != 0)
+            {
+                var n = Convert.ToInt32(Console.ReadLine());
+                if (n == 0)
+                {
+                    Console.WriteLine(0);
+                    continue;
+                }
+
+                var arr = new int[n][];
+                int counter = 0;
+                while (counter < n)
+                {
+                    var sch = Array.ConvertAll(Console.ReadLine().Trim().Split(' '), tmp => Convert.ToInt32(tmp));
+
+                    arr[counter++] = sch;
+                }
+                Array.Sort(arr, (x, y) =>
+                {
+                    if (x[0] == y[0])
+                        return x[1] - y[1];
+                    else
+                        return x[0] - y[0];
+                });
+                var res = new List<int[]>();
+                res.Add(arr[0]);
+                for (int i = 1; i < n; i++)
+                {
+                    var top = res[res.Count - 1];
+                    if (top[1] <= arr[i][0])
+                        res.Add(arr[i]);
+                    if (top[1] < arr[i][1])
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        res.RemoveAt(res.Count - 1);
+                        res.Add(arr[i]);
+                    }
+                }
+                Console.WriteLine(res.Count);
+            }
+        }
+
         //public static void Main()
         //{
 
@@ -50,7 +98,7 @@ namespace DemoConsole.BZ
         //            if (curEnd > next.s)
         //            {
         //                curEnd = Math.Min(curEnd, next.e);
-                       
+
         //                continue;
         //            }
         //            tobeAttended.Add(new Interval(curStart, curEnd));

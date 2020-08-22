@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DemoConsole.LeetCode
 {
-   public class BestTimeToBuyStock
+    public class BestTimeToBuyStock
     {
         public int MaxProfit(int[] prices)
         {

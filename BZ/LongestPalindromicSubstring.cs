@@ -11,7 +11,7 @@ public class LongestPalindromicSubString
     //        Console.WriteLine(LongestPalindromicSubStringLength(s));
     //    }
     //}
-    public static int LongestPalindromicSubStringLength(string s)
+    public int LongestPalindromicSubStringLength(string s)
     {
         int max = 0;
         string ans = string.Empty;

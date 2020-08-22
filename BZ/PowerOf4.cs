@@ -4,9 +4,9 @@ using System.Text;
 
 namespace DemoConsole.BeingZero
 {
-    class PowerOf4
+    public class PowerOf4
     {
-        bool isPowerOfFour(int n)
+        public bool isPowerOfFour(int n)
         {
             var x = 0x55555555;
             if (!isPowerOfTwo(n))

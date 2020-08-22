@@ -8,7 +8,7 @@ namespace DemoConsole.LeetCode.LevelOrder
         public TreeNode right;
         public TreeNode(int value)
         {
-            root = value;
+            val = value;
         }
     }
 
