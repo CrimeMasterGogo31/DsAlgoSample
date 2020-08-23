@@ -14,11 +14,11 @@
         foreach (var w in word)
         {
             var ch = w - 'a';
-            if (node.list[ch] == null)
+            if (node.arr[ch] == null)
             {
-                node.list[ch] = new TrieNode();
+                node.arr[ch] = new TrieNode();
             }
-            node = node.list[ch];
+            node = node.arr[ch];
         }
         node.isword = true;
         node.word = word;
@@ -44,7 +44,7 @@
             var w = word[i];
             if (w == '.')
             {
-                foreach (var l in node.list)
+                foreach (var l in node.arr)
                 {
                     if (l != null)
                     {
@@ -57,9 +57,9 @@
             else
             {
                 var ch = w - 'a';
-                if (node.list[ch] != null)
+                if (node.arr[ch] != null)
                 {
-                    return Search(node.list[ch], word, i + 1);
+                    return Search(node.arr[ch], word, i + 1);
                 }
                 else
                 {
@@ -81,13 +81,13 @@
 
 public class TrieNode
 {
-    public TrieNode[] list;
+    public TrieNode[] arr;
     public string word;
     public bool isword;
 
     public TrieNode()
     {
-        list = new TrieNode[26];
+        arr = new TrieNode[26];
     }
 }
 

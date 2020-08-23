@@ -11,15 +11,8 @@ using PreOrderInOrder;
 namespace DemoConsole
 {
 
-
     class Program
     {
-
-
-
-
-
-
 
         static void Main(string[] args)
         {
@@ -54,7 +47,13 @@ namespace DemoConsole
             root.left.right = new TreeNode(5);
             #endregion
 
-            var result = new Maze().HasPath(arr, new int[2] { 0,4}, new int[2] { 0,1 });
+            var sc = new StreamChecker(new string[5]{ "ab", "ba", "aaab", "abab", "baa" });
+            var s1 =sc.Query('b');
+            var s2 = sc.Query('a');
+            var s3 = sc.Query('a');
+            var s4 = sc.Query('a');
+            var s5 = sc.Query('a');
+
         }
 
         public class compareClass : IComparer<char>
