@@ -23,12 +23,11 @@ namespace DemoConsole
             //0 0 0 0 0
 
             #region 2-D Array Initialize
-            var arr = new int[5][] {
-                    new int[5] {  0 ,0 ,1, 0, 0},
-                    new int[5] {  0 ,0 ,0, 0, 0},
-                    new int[5] {  0 ,0 ,0, 1, 0},
-                    new int[5] {  1 ,1 ,0, 1, 1},
-                    new int[5] {  0 ,0 ,0, 0, 0}
+            var arr = new int[4][] {
+                    new int[2] {  0 , 0 },
+                    new int[2] {  0 , 1},
+                    new int[2] {  1 , 2},
+                    new int[2] {  1 , 2},
                     };
             #endregion
 
@@ -47,13 +46,14 @@ namespace DemoConsole
             root.left.right = new TreeNode(5);
             #endregion
 
-            var sc = new StreamChecker(new string[5]{ "ab", "ba", "aaab", "abab", "baa" });
-            var s1 =sc.Query('b');
+            var sc = new StreamChecker(new string[5] { "ab", "ba", "aaab", "abab", "baa" });
+            var s1 = sc.Query('b');
             var s2 = sc.Query('a');
             var s3 = sc.Query('a');
             var s4 = sc.Query('a');
             var s5 = sc.Query('a');
 
+            var BannedParagraphres = new BannedParagraph().MostCommonWord("a, b, a, b,b,b,c c", new string[1] { "b"});
         }
 
         public class compareClass : IComparer<char>
