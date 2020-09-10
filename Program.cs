@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using DemoConsole.BeingZero;
 using DemoConsole.BZ;
 using DemoConsole.Design;
 using DemoConsole.InterviewBits;
 using DemoConsole.LeetCode;
 using DemoConsole.LeetCode.PartitionLinkedList;
+using DemoConsole.LeetCodelcs;
 using PreOrderInOrder;
 
 namespace DemoConsole
@@ -16,19 +19,23 @@ namespace DemoConsole
 
         static void Main(string[] args)
         {
-            //0 0 1 0 0
-            //0 0 0 0 0
-            //0 0 0 1 0
-            //1 1 0 1 1
-            //0 0 0 0 0
+
+            //           [["E","E","E","E","E"],["E","E","M","E","E"],["E","E","E","E","E"],["E","E","E","E","E"]]
+            //[3,0]
+            var chararr = new char[4][] {
+                new char[5]{'E','E','E','E','E' },
+                new char[5]{ 'E','E','M','E','E'},
+                new char[5]{ 'E','E','E','E','E'},
+                new char[5]{ 'E','E','E','E','E'},
+            };
 
             #region 2-D Array Initialize
-            var arr = new int[4][] {
-                    new int[2] {  0 , 0 },
-                    new int[2] {  0 , 1},
-                    new int[2] {  1 , 2},
-                    new int[2] {  1 , 2},
-                    };
+            //var arr = new int[4][] {
+            //        new int[2] {  0 , 0 },
+            //        new int[2] {  0 , 1},
+            //        new int[2] {  1 , 2},
+            //        new int[2] {  1 , 2},
+            //        };
             #endregion
 
             #region Linked List Initialize
@@ -52,8 +59,34 @@ namespace DemoConsole
             var s3 = sc.Query('a');
             var s4 = sc.Query('a');
             var s5 = sc.Query('a');
+            //
 
-            var BannedParagraphres = new BannedParagraph().MostCommonWord("a, b, a, b,b,b,c c", new string[1] { "b"});
+            var StringDividess = new StringDivide().GcdOfStrings("TAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX");
+
+        }
+
+        public class Employee
+        {
+            public int age { get; set; }
+            public string name { get; set; }
+
+            public override bool Equals(object obj)
+            {
+                if (!(obj is Employee))
+                    return false;
+
+                if (((Employee)obj).name == this.name)
+                {
+                    return true;
+                }
+                return false;
+            }
+
+            public override int GetHashCode()
+            {
+                return this.name.GetHashCode();
+            }
+
         }
 
         public class compareClass : IComparer<char>

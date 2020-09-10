@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DemoConsole
 {
-    public class LargestNumber
+    public class LargestNumberClass
     {
         class GFG : IComparer<int>
         {
@@ -24,16 +24,16 @@ namespace DemoConsole
                     countI++;
                     i /= 10;
                 }
-                
+
                 while (j >= 10)
                 {
                     countJ++;
                     j /= 10;
                 }
-                while (i == j &(countI!=0 || countJ!=0))
+                while (i == j & (countI != 0 || countJ != 0))
                 {
-                    i=x-(i * (int)Math.Pow(10,countI));
-                    j =y- (j * (int)Math.Pow(10,countJ));
+                    i = x - (i * (int)Math.Pow(10, countI));
+                    j = y - (j * (int)Math.Pow(10, countJ));
                     while (i >= 10) //456
                     {
                         countI++;
@@ -51,17 +51,19 @@ namespace DemoConsole
             }
         }
 
-        public string largestNumber(List<int> A)
+        public string LargestNumber(int[] nums)
         {
-            GFG gg = new GFG();
-            A.Sort(gg);
-            A.Reverse();
-            string result = "";
-            foreach (var i in A)
+            Array.Sort(nums, (x, y) =>
+            {
+                return (y.ToString() + x.ToString()).CompareTo(x.ToString() + y.ToString());
+            });
+            var result = "";
+            foreach (var i in nums)
             {
                 result = result + i.ToString();
             }
-            return result;
+
+            return result[0] == '0' ? "0" : result;
         }
     }
 }
