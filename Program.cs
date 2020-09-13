@@ -61,7 +61,7 @@ namespace DemoConsole
             var s5 = sc.Query('a');
             //
 
-            var StringDividess = new StringDivide().GcdOfStrings("TAUXXTAUXXTAUXXTAUXXTAUXX", "TAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXXTAUXX");
+            var NumsRollToTargetres = new NumsRollToTarget().NumRollsToTarget(1, 6, 3);
 
         }
 
