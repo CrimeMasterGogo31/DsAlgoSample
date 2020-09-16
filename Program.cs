@@ -7,7 +7,9 @@ using DemoConsole.BZ;
 using DemoConsole.Design;
 using DemoConsole.InterviewBits;
 using DemoConsole.LeetCode;
+using DemoConsole.LeetCode.maxxor;
 using DemoConsole.LeetCode.PartitionLinkedList;
+using DemoConsole.LeetCode.WordSearchII;
 using DemoConsole.LeetCodelcs;
 using PreOrderInOrder;
 
@@ -20,13 +22,15 @@ namespace DemoConsole
         static void Main(string[] args)
         {
 
-            //           [["E","E","E","E","E"],["E","E","M","E","E"],["E","E","E","E","E"],["E","E","E","E","E"]]
-            //[3,0]
+            //            ['o','a','a','n'],
+            //['e','t','a','e'],
+            //['i','h','k','r'],
+            //['i','f','l','v']
             var chararr = new char[4][] {
-                new char[5]{'E','E','E','E','E' },
-                new char[5]{ 'E','E','M','E','E'},
-                new char[5]{ 'E','E','E','E','E'},
-                new char[5]{ 'E','E','E','E','E'},
+                new char[4]{'o','a','a','n' },
+                new char[4]{ 'e','t','a','e'},
+                new char[4]{ 'i','h','k','r'},
+                new char[4]{ 'i', 'f', 'l', 'v' }
             };
 
             #region 2-D Array Initialize
@@ -61,7 +65,7 @@ namespace DemoConsole
             var s5 = sc.Query('a');
             //
 
-            var NumsRollToTargetres = new NumsRollToTarget().NumRollsToTarget(1, 6, 3);
+            var WordSearchIIres = new MaxXor().FindMaximumXOR(new int[] { 3, 10, 5, 25, 2, 8 });
 
         }
 

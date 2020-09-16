@@ -6,8 +6,8 @@ namespace DemoConsole.LeetCode
 {
     // Dynamic Programing
     // Bottom Up
-    // TC O(N^2)
-    // SP O(N^2)
+    // TC O(M*N)
+    // SP O(M*N)
     public class UniquePathInMatrix
     {
         public int UniquePaths(int m, int n)

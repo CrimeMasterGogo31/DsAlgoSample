@@ -1,86 +1,140 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
-namespace DemoConsole.LeetCode
+namespace DemoConsole.LeetCode.WordSearchII
 {
+    public class TrieNode
+    {
+        public TrieNode[] arr;
+        public bool iseow;
+        public string word;
+
+        public TrieNode()
+        {
+            arr = new TrieNode[26];
+        }
+    }
     public class WordSearchII
     {
-        static bool iscurrentFound;
         public IList<string> FindWords(char[][] board, string[] words)
         {
             int r = board.Length;
             int c = board[0].Length;
-            var res = new List<string>();
-            foreach (var word in words)
+            var res = new HashSet<string>();
+            var root = FillTrie(words);
+
+            for (int i = 0; i < r; i++)
             {
-                iscurrentFound = false;
-                for (int i = 0; i < r; i++)
+                for (int j = 0; j < c; j++)
                 {
-                    if (iscurrentFound)
-                        break;
-                    for (int j = 0; j < c; j++)
-                    {
-                        if (iscurrentFound)
-                            break;
-                        if (board[i][j] == (word[0]))
-                        {
-                            var set = new HashSet<string>();
-                            set.Add($"{i}{j}");
-                            Search(board, r, c, i, j, word, 0, set);
-
-                        }
-                    }
-                }
-
-                if (iscurrentFound)
-                {
-                    res.Add(word);
+                    var set = new HashSet<string>();
+                    set.Add($"{i}{j}");
+                    Search(board, r, c, i, j, "", res, set, root);
                 }
             }
-            return res;
+
+            return res.ToList();
         }
 
-        private bool Search(char[][] board, int r, int c, int i, int j, string word, int index, HashSet<string> set)
+        private TrieNode FillTrie(string[] words)
         {
-            if (index + 1 == word.Length)
+            var root = new TrieNode();
+
+            foreach (var word in words)
             {
-                iscurrentFound = true;
-                return true;
+                var cur = root;
+                foreach (var ch in word)
+                {
+                    if (cur.arr[ch - 'a'] == null)
+                    {
+                        cur.arr[ch - 'a'] = new TrieNode();
+                    }
+                    cur = cur.arr[ch - 'a'];
+                }
+                cur.iseow = true;
+                cur.word = word;
             }
+
+            return root;
+        }
+
+        private void Search(char[][] board, int r, int c, int i, int j, string word, HashSet<string> res, HashSet<string> set, TrieNode root)
+        {
+            word += board[i][j];
+            if (!ContainsPrefix(word, root))
+            {
+                return;
+            }
+
+            if (ContainsWord(word, root))
+            {
+                res.Add(word);
+            }
+
             string key = string.Empty;
-            bool top = false, bottom = false, left = false, right = false;
 
             key = $"{i - 1}{j}";
-            if (i - 1 >= 0 && board[i - 1][j] == word[index + 1] && !iscurrentFound && !set.Contains(key))
+            if (i - 1 >= 0 && !set.Contains(key))
             {
                 set.Add(key);
-                top = Search(board, r, c, i - 1, j, word, index + 1, set);
+                Search(board, r, c, i - 1, j, word, res, set, root);
                 set.Remove(key);
             }
             key = $"{i + 1}{j}";
-            if (i + 1 < r && board[i + 1][j] == word[index + 1] && !iscurrentFound && !set.Contains(key))
+            if (i + 1 < r && !set.Contains(key))
             {
                 set.Add(key);
-                bottom = Search(board, r, c, i + 1, j, word, index + 1, set);
+                Search(board, r, c, i + 1, j, word, res, set, root);
                 set.Remove(key);
 
             }
             key = $"{i}{j - 1}";
-            if (j - 1 >= 0 && board[i][j - 1] == word[index + 1] && !iscurrentFound && !set.Contains(key))
+            if (j - 1 >= 0 && !set.Contains(key))
             {
                 set.Add(key);
-                left = Search(board, r, c, i, j - 1, word, index + 1, set);
+                Search(board, r, c, i, j - 1, word, res, set, root);
                 set.Remove(key);
             }
             key = $"{i}{j + 1}";
-            if (j + 1 < c && board[i][j + 1] == word[index + 1] && !iscurrentFound && !set.Contains(key))
+            if (j + 1 < c && !set.Contains(key))
             {
                 set.Add(key);
-                right = Search(board, r, c, i, j + 1, word, index + 1, set);
+                Search(board, r, c, i, j + 1, word, res, set, root);
                 set.Remove(key);
             }
-            return iscurrentFound || top || bottom || left || right;
+        }
+
+        private bool ContainsWord(string word, TrieNode root)
+        {
+            var cur = root;
+            foreach (var ch in word)
+            {
+                if (cur.arr[ch - 'a'] == null)
+                    return false;
+                else
+                    cur = cur.arr[ch - 'a'];
+            }
+
+            if (cur.iseow)
+                return true;
+            return false;
+        }
+
+        private bool ContainsPrefix(string word, TrieNode root)
+        {
+            var cur = root;
+
+            foreach (var ch in word)
+            {
+                if (cur.arr[ch - 'a'] == null)
+                    return false;
+                else
+                    cur = cur.arr[ch - 'a'];
+            }
+
+            return true;
         }
     }
 }
