@@ -47,6 +47,7 @@ namespace DemoConsole
             head1.next = new ListNode(2);
             head1.next.next = new ListNode(3);
             head1.next.next.next = new ListNode(4);
+            head1.next.next.next.next = new ListNode(5);
             #endregion
 
             #region Tree Initialize
@@ -65,7 +66,7 @@ namespace DemoConsole
             var s5 = sc.Query('a');
             //
 
-            var WordSearchIIres = new MaxXor().FindMaximumXOR(new int[] { 3, 10, 5, 25, 2, 8 });
+            var RobustBundleInCircleres = new ReverseLinkedListII().ReverseBetween(head1,2,4);
 
         }
 

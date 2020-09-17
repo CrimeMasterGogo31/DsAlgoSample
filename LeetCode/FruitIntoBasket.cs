@@ -9,48 +9,44 @@ namespace DemoConsole.LeetCode
     {
         public int TotalFruit(int[] tree)
         {
-            int e = 0;
-            int recent=0;
-            var basket = new Dictionary<int, int>();
-            int maxValue = 0;
-            while (e < tree.Length)
+            var s = 0;
+            var e = 0;
+            var max = 0;
+            var cur = 0;
+            var dict = new Dictionary<int, int>();
+            while (s < tree.Length && e < tree.Length)
             {
-                if (basket.ContainsKey(tree[e]) || (!basket.ContainsKey(tree[e]) && basket.Count < 2))
+                var key = tree[e];
+                if (dict.ContainsKey(key))
                 {
-                    recent = tree[e];
-                    if (basket.ContainsKey(tree[e]))
-                    {
-                        basket[tree[e++]]++;
-                    }
-                    else
-                    {
-                        basket.Add(tree[e++], 1);
-                    }
-                    continue;
+                    dict[key]++;
                 }
                 else
                 {
-                    var count = basket.Values.ToList().AsQueryable().Sum();
-                    maxValue = Math.Max(maxValue, count);
-                    foreach (var key in basket.Keys)
+                    if (dict.Keys.Count == 2)
                     {
-                        if (key != recent)
+                        foreach (var kv in dict)
+                            cur += kv.Value;
+                        max = Math.Max(max, cur);
+                        while (dict.Keys.Count == 2)
                         {
-                            basket.Remove(key);
-                            break;
+                            dict[tree[s]]--;
+                            if (dict[tree[s]] == 0)
+                                dict.Remove(tree[s]);
+                            s++;
                         }
-
                     }
-                    recent = tree[e];
-                    basket.Add(tree[e++], 1);
-                    //basket.Add(tree[e++]);
+                    dict.Add(tree[e], 1);
                 }
-
+                e++;
             }
-            maxValue = Math.Max(maxValue, basket.Values.ToList().AsQueryable().Sum());
-            return maxValue;
+            foreach (var kv in dict)
+                cur += kv.Value;
+            max = Math.Max(max, cur);
 
+            return max;
         }
+
 
     }
 
