@@ -12,7 +12,7 @@ using DemoConsole.LeetCode.PartitionLinkedList;
 using DemoConsole.LeetCode.WordSearchII;
 using DemoConsole.LeetCodelcs;
 using PreOrderInOrder;
-
+using DemoConsole.LeetCode.CarPolling;
 namespace DemoConsole
 {
 
@@ -66,8 +66,12 @@ namespace DemoConsole
             var s5 = sc.Query('a');
             //
 
-            var RobustBundleInCircleres = new ReverseLinkedListII().ReverseBetween(head1,2,4);
-
+            var CarPoolingClassRes = new CarPoolingClass().CarPooling(new int[2][]{
+                new int[3]{2,1,5},
+                new int[3]{3,5,7}
+                }
+                , 3);
+            Console.WriteLine(CarPoolingClassRes);
         }
 
         public class Employee
