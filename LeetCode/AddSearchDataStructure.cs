@@ -30,9 +30,6 @@
     public bool Search(string word)
     {
         var node = root;
-        var iswordFound = false;
-
-
         return Search(node, word, 0);
 
     }

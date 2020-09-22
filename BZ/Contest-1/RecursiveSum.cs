@@ -11,7 +11,6 @@ namespace DemoConsole.BZ.Contest_1
         {
             if (n == "0")
                 return 0;
-            string num;
             var sum = Calculate(n);
             sum *= k;
 

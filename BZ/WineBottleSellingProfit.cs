@@ -11,9 +11,7 @@ namespace DemoConsole.BZ
         public int maxWineSellingProfit(int[] a)
         {
             // Your code here.
-            int i = 0;
             int j = a.Length - 1;
-            int y = 1;
             arr = a;
             dict = new Dictionary<string, int>();
             return (maxWineSelling(0, j, 1));

@@ -12,7 +12,6 @@ namespace DemoConsole.LeetCode
             int e = 0;
             int s = 0;
             int max = 0;
-            int count = 0;
 
             for (; e < str.Length;)
             {

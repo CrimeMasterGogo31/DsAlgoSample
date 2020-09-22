@@ -8,7 +8,6 @@ class BeingZero1
     {
         char a = s[0];
         int max = 0;
-        int ctr = 0;
         char c = 'x';
         Dictionary<char, int> dic = new Dictionary<char, int>();
         for (int i = 0; i < s.Length; i++)
