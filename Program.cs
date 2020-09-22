@@ -64,13 +64,12 @@ namespace DemoConsole
             var s3 = sc.Query('a');
             var s4 = sc.Query('a');
             var s5 = sc.Query('a');
-            //
+            //[1,2,3,4,5], arr2 = [1,2,5,7,9], arr3 = [1,3,4,5,8]
 
-            var CarPoolingClassRes = new CarPoolingClass().CarPooling(new int[2][]{
-                new int[3]{2,1,5},
-                new int[3]{3,5,7}
-                }
-                , 3);
+            var CarPoolingClassRes = new ArraysIntersectionClass().ArraysIntersection(new int[]{1,2,3,4,5},
+                new int[]{5,7,9},
+                new int[]{1,3,4,5,8}
+                );
             Console.WriteLine(CarPoolingClassRes);
         }
 
