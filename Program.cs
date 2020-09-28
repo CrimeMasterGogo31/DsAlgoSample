@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DemoConsole.BeingZero;
-using DemoConsole.BZ;
+using DemoConsole.GFG;
 using DemoConsole.Design;
+using DemoConsole.Gs;
 using DemoConsole.InterviewBits;
 using DemoConsole.LeetCode;
 using DemoConsole.LeetCode.maxxor;
@@ -66,11 +67,17 @@ namespace DemoConsole
             var s5 = sc.Query('a');
             //[1,2,3,4,5], arr2 = [1,2,5,7,9], arr3 = [1,3,4,5,8]
 
-            var CarPoolingClassRes = new ArraysIntersectionClass().ArraysIntersection(new int[]{1,2,3,4,5},
-                new int[]{5,7,9},
-                new int[]{1,3,4,5,8}
-                );
-            Console.WriteLine(CarPoolingClassRes);
+            var stack = new Stack<int>();
+            stack.Push(12);
+            stack.Push(15);
+            stack.Push(24);
+            stack.Push(1);
+            stack.Push(5);
+
+            var obj = new LongestUniformSubstringClass();
+            var res = obj.LongestUniformSubstring("aabbbbbCdAA");
+            Console.WriteLine(res[0] );
+            Console.WriteLine(res[1] );
         }
 
         public class Employee
