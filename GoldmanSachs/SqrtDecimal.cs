@@ -16,7 +16,6 @@ namespace DemoConsole.Gs
                 if( Math.Abs((mid * mid) - num) <= 0.00001)
                 {
                     var str = mid.ToString("F5");
-
                     return Convert.ToDouble(str);
                 }
                 else if( mid * mid > num)

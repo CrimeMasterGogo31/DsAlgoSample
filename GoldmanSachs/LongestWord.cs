@@ -6,7 +6,7 @@ namespace DemoConsole.Gs
 {
     public class LongestWordClass
     {
-        public HashSet<string> LongestWord(string[] dictionary , string str)
+        public HashSet<string> LongestWord(string[] dictionary , string str) // aa {a=2}  aaa {a=3}
         {
             if(str == null || dictionary == null || 0 == dictionary.Length)
             return null;

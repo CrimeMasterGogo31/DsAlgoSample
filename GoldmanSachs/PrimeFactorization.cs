@@ -1,13 +1,43 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace DemoConsole.Gs
 {
     public class PrimeFactorizationClass
     {
+        // Poptimized code
+        public List<int> PrimeFactorizationGFG(int x)
+        {
+            var result = new List<int>();
+            while(x % 2 == 0)
+            {
+                result.Add(2);
+                x /= 2;
+            }
+            var sqrt = Math.Sqrt(x);
+            int i = 3;
+            while(i <= sqrt)
+            {
+                if( x % i == 0)
+                {
+                    result.Add(i);
+                    x /= i;
+                }
+                else
+                {
+                    i += 2;
+                }
+            }
+
+            if(x > 2)
+                result.Add(x);
+            
+            return result;
+        }
+
+
         List<int> primeList = new List<int>();
-        public List<int> PrimeFactorization(int x) 
+        public List<int> PrimeFactorization(int x)  // 1 [2,3,5,7,9, 11]   {3, 5} check GFG  first divide with 2 and then wil all odd numbers
         {
             Fill(x);
             var result = new List<int>();

@@ -6,21 +6,23 @@ namespace DemoConsole.Gs
 {
     public class PowerOfTenClass
     {
-    //    public bool isIPowerOf10( int num ) // 1/10  0.1
-    //     {
-    //         if(num <= 0)
-    //             return false;
-    //         while(num>9)
-    //         {
-    //             if(num % 10 == 0)
-    //                 num/= 10;
-    //             else 
-    //                 return false;
-    //         }       
-    //         return num <= 1 : true: false;     
-    //     }  
+        // TC = O(LogN) 
+       public bool isIPowerOf10( int num ) // 1/10  0.1
+        {
+            if(num <= 0)
+                return false;
+            while(num>9)
+            {
+                if(num % 10 == 0)
+                    num/= 10;
+                else 
+                    return false;
+            }       
+            return num <= 1 ? true: false;     
+        }  
 
-        public bool isIPowerOf10( int num ) // 1/10  0.1
+        // TC: O(1)
+        public bool isIPowerOfTen( int num ) // 1/10  0.1
         {
             if(num <= 0)
                 return false;

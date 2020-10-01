@@ -35,7 +35,7 @@ namespace DemoConsole.Gs
         }
 
         // 6, 8 = 2
-        int GCD(int a , int b) // check GCD logic  for negetive number
+        int GCD(int a , int b) // check GCD logic for negetive number
         {
             while(a != b)
             {

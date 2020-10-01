@@ -74,10 +74,12 @@ namespace DemoConsole
             stack.Push(1);
             stack.Push(5);
 
-            var obj = new LongestUniformSubstringClass();
-            var res = obj.LongestUniformSubstring("aabbbbbCdAA");
-            Console.WriteLine(res[0] );
-            Console.WriteLine(res[1] );
+            var obj = new SnowPack();
+            
+ 
+            var res = obj.Calculate(new int[] {1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1});
+            
+            Console.WriteLine(res);
         }
 
         public class Employee
@@ -103,7 +105,7 @@ namespace DemoConsole
             }
 
         }
-
+        
         public class compareClass : IComparer<char>
         {
             public int Compare(char x, char y)

@@ -16,7 +16,7 @@ namespace  DemoConsole.Gs
             foreach(var str in strs)
             {
                 var charr = str.ToCharArray();
-                Array.Sort(charr, (x,y)=> x-y);
+                Array.Sort(charr, (x,y)=> x-y); // can be encoded as b1a2ba instead of sorting
                 var s = new String(charr);
                 if(dict.ContainsKey(s))
                 {
